@@ -16,6 +16,6 @@ export const GlobalStyle = createGlobalStyle`
         width: 100%;
   min-height: 100vh;
 
-  background-color: ${({ theme }) => theme.fonts.colors.background};
+  background-color: ${({ theme }) => theme.fonts.colors.colorPrimaryBg};
     }
 `;

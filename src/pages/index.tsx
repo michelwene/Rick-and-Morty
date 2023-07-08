@@ -10,7 +10,11 @@ const poppins = Poppins({
 });
 
 export default function Home() {
-  const { data } = useQuery(FETCH_CHARACTERS);
+  const { data } = useQuery(FETCH_CHARACTERS, {
+    variables: {
+      page: 1,
+    },
+  });
   console.log("🚀 ~ file: index.tsx:14 ~ Home ~ data:", data);
   return (
     <>
