@@ -12,4 +12,10 @@ export const GlobalStyle = createGlobalStyle`
     a {
         text-decoration: none;
     }
+    main{
+        width: 100%;
+  min-height: 100vh;
+
+  background-color: ${({ theme }) => theme.fonts.colors.background};
+    }
 `;

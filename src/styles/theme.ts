@@ -5,6 +5,13 @@ const theme = {
       medium: 500,
       semiBold: 600,
     },
+    fontSize: {
+      fontSizeRegular: "14px",
+      fontSizeSM: "12px",
+      fontSizeLG: "16px",
+      fontSizeXL: "20px",
+      fontSizeHeading: "38px",
+    },
     colors: {
       title: "rgba(0,0,0,0.85)",
       colorText: "rgba(0,0,0,0.65)",
@@ -41,13 +48,6 @@ const theme = {
       paddingMD: "24px",
       paddingXL: "32px",
     },
-    fontSize: {
-      fontSize: "14px",
-      fontSizeSM: "12px",
-      fontSizeLG: "16px",
-      fontSizeXL: "20px",
-      fontSizeHeading: "38px",
-    },
   },
 
   // media queries
@@ -60,6 +60,6 @@ const theme = {
     xl: "1200px",
     xxl: "1400px",
   },
-};
+} as const;
 
 export default theme;
