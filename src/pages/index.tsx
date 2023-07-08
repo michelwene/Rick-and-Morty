@@ -1,6 +1,8 @@
 import Head from "next/head";
 import { Poppins } from "next/font/google";
 import { Layout } from "@/components/Layout";
+import { useQuery } from "@apollo/client";
+import { FETCH_CHARACTERS } from "@/graphql/queries/fetchCharacters";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -8,6 +10,8 @@ const poppins = Poppins({
 });
 
 export default function Home() {
+  const { data } = useQuery(FETCH_CHARACTERS);
+  console.log("🚀 ~ file: index.tsx:14 ~ Home ~ data:", data);
   return (
     <>
       <Head>
