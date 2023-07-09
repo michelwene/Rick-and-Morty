@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.li`
   color: ${({ theme }) => theme.colors.colorText};
   border: 1px solid "#f0f0f0";
   border-radius: 8px;

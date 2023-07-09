@@ -13,7 +13,7 @@ export function Characters({ characters }: CharactersProps) {
           <Card.Cover src={character?.image!} alt={character?.name!} />
           <Card.Body
             title={character?.name!}
-            descriptions={[character?.status!, character?.species!]}
+            descriptions={[character?.status!, character?.location?.name!]}
           />
         </Card.Wrapper>
       ))}

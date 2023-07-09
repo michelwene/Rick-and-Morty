@@ -1,6 +1,8 @@
 import { styled } from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  margin-top: -1px;
+`;
 
 export const Image = styled.img`
   border-radius: 8px 8px 0 0;

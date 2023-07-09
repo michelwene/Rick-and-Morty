@@ -26,7 +26,7 @@ const theme = {
     colorPrimaryBg: "#f6ffed",
     colorPrimaryBgHover: "#d9f7be",
     colorPrimaryBorder: "#b7eb8f",
-    colorPrimaryBorderHover: "#95de64",
+    colorPrimaryBorderHover: "rgba(149,222,100, 0.2)",
     colorPrimaryHover: "#73d13d",
     colorPrimary: "#52c41a",
     colorPrimaryActive: "#389e0d",

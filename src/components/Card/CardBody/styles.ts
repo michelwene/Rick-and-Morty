@@ -3,10 +3,14 @@ import { styled } from "styled-components";
 export const Container = styled.div`
   border-radius: 0 0 8px 8px;
   padding: ${({ theme }) => theme.spacing.paddings.paddingMD};
+  background-color: #fff;
+
+  margin-top: -5px;
 `;
 
 export const Content = styled.div`
   display: flex;
+  margin: -4px 0;
 `;
 
 export const Wrapper = styled.div`

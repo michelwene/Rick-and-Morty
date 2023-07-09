@@ -4,6 +4,9 @@ import { Layout } from "@/components/Layout";
 import { useQuery } from "@apollo/client";
 import { FETCH_CHARACTERS } from "@/graphql/queries/fetchCharacters";
 import { Characters } from "@/components/Characters";
+import { Input } from "@/components/Input";
+import { useState } from "react";
+import { useDebounce } from "@/hooks/useDebounce";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -11,9 +14,14 @@ const poppins = Poppins({
 });
 
 export default function Home() {
+  const [search, setSearch] = useState("");
+  const debouncedValue = useDebounce(search);
   const { data, loading } = useQuery(FETCH_CHARACTERS, {
     variables: {
       page: 1,
+      filter: {
+        name: debouncedValue,
+      },
     },
   });
   console.log("🚀 ~ file: index.tsx:14 ~ Home ~ data:", data);
@@ -27,6 +35,11 @@ export default function Home() {
       </Head>
       <main className={`${poppins.className}`}>
         <Layout>
+          <Input
+            placeholder="Search by name or status..."
+            value={search}
+            onChange={setSearch}
+          />
           {loading ? (
             <div>loading</div>
           ) : (
