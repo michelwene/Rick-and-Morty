@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import { Layout } from "@/components/Layout";
 import { useQuery } from "@apollo/client";
 import { FETCH_CHARACTERS } from "@/graphql/queries/fetchCharacters";
+import { Characters } from "@/components/Characters";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -10,7 +11,7 @@ const poppins = Poppins({
 });
 
 export default function Home() {
-  const { data } = useQuery(FETCH_CHARACTERS, {
+  const { data, loading } = useQuery(FETCH_CHARACTERS, {
     variables: {
       page: 1,
     },
@@ -25,7 +26,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${poppins.className}`}>
-        <Layout>dsa</Layout>
+        <Layout>
+          {/* <Characters characters={data?.characters?.results}/> */}
+        </Layout>
       </main>
     </>
   );
