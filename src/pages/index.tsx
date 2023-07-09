@@ -8,6 +8,7 @@ import { Input } from "@/components/Input";
 import { useState } from "react";
 import { useDebounce } from "@/hooks/useDebounce";
 import { RadioGroup } from "@/components/RadioGroup";
+import { Spin } from "@/components/Loading";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -76,7 +77,7 @@ export default function Home() {
             label="Search by status:"
           />
           {loading ? (
-            <div>loading</div>
+            <Spin />
           ) : (
             <>
               {data?.characters && <Characters characters={data.characters} />}
