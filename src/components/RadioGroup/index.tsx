@@ -1,3 +1,4 @@
+import { ChangeEventHandler } from "react";
 import * as S from "./styles";
 
 interface RadioGroupProps {
@@ -23,15 +24,17 @@ export function RadioGroup({
       <S.Content>
         {radios.map((radio) => (
           <S.Wrapper key={radio.name}>
-            <input
+            <S.Input
               type="radio"
               id={radio.label}
               name={radio.name}
               value={radio.value}
               checked={radio.value === value}
-              onChange={(e) => onChange(e.target.value)}
+              onChange={(e: { target: { value: string } }) =>
+                onChange(e.target.value)
+              }
             />
-            <label htmlFor={radio.label}>{radio.label}</label>
+            <S.Label htmlFor={radio.label}>{radio.label}</S.Label>
           </S.Wrapper>
         ))}
       </S.Content>
