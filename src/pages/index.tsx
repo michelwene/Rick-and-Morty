@@ -7,23 +7,52 @@ import { Characters } from "@/components/Characters";
 import { Input } from "@/components/Input";
 import { useState } from "react";
 import { useDebounce } from "@/hooks/useDebounce";
+import { RadioGroup } from "@/components/RadioGroup";
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "700"],
 });
 
+const radios = [
+  {
+    label: "Alive",
+    value: "Alive",
+    name: "status",
+  },
+  {
+    label: "Dead",
+    value: "Dead",
+    name: "status",
+  },
+  {
+    label: "Unknown",
+    value: "Unknown",
+    name: "status",
+  },
+];
+
 export default function Home() {
   const [search, setSearch] = useState("");
+  const [status, setStatus] = useState("");
   const debouncedValue = useDebounce(search);
   const { data, loading } = useQuery(FETCH_CHARACTERS, {
     variables: {
       page: 1,
       filter: {
         name: debouncedValue,
+        status: status,
       },
     },
   });
+
+  const handleSelectStatus = (value: string) => {
+    setStatus(value);
+  };
+
+  const handleSearch = (value: string) => {
+    setSearch(value);
+  };
   console.log("🚀 ~ file: index.tsx:14 ~ Home ~ data:", data);
   return (
     <>
@@ -36,9 +65,15 @@ export default function Home() {
       <main className={`${poppins.className}`}>
         <Layout>
           <Input
-            placeholder="Search by name or status..."
+            placeholder="Search by name..."
             value={search}
-            onChange={setSearch}
+            onChange={handleSearch}
+          />
+          <RadioGroup
+            radios={radios}
+            value={status}
+            onChange={handleSelectStatus}
+            label="Search by status:"
           />
           {loading ? (
             <div>loading</div>

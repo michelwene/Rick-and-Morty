@@ -1,4 +1,3 @@
-import { ChangeEventHandler } from "react";
 import * as S from "./styles";
 
 interface InputProps {

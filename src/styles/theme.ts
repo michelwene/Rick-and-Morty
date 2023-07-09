@@ -6,11 +6,11 @@ const theme = {
       semiBold: 600,
     },
     fontSize: {
-      fontSizeRegular: "14px",
-      fontSizeSM: "12px",
-      fontSizeLG: "16px",
-      fontSizeXL: "20px",
-      fontSizeHeading: "38px",
+      fontSizeRegular: "1rem",
+      fontSizeSM: "085rem",
+      fontSizeLG: "1.15rem",
+      fontSizeXL: "1.25rem",
+      fontSizeHeading: "2.72rem",
     },
   },
   colors: {

@@ -8,6 +8,7 @@ interface CharactersProps {
 export function Characters({ characters }: CharactersProps) {
   return (
     <S.Container>
+      {characters?.results?.length === 0 && <p>Nenhum personagem encontrado</p>}
       {characters?.results?.map((character) => (
         <Card.Wrapper key={character?.id}>
           <Card.Cover src={character?.image!} alt={character?.name!} />

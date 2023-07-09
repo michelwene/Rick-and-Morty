@@ -3,8 +3,8 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 export const InputWrapper = styled.div`
   display: flex;
-
-  margin-bottom: ${({ theme }) => theme.spacing.margins.marginMD};
+  flex: 1;
+  margin-bottom: ${({ theme }) => theme.spacing.margins.margin};
 `;
 
 export const Input = styled.input`
