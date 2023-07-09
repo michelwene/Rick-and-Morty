@@ -27,7 +27,13 @@ export default function Home() {
       </Head>
       <main className={`${poppins.className}`}>
         <Layout>
-          {/* <Characters characters={data?.characters?.results}/> */}
+          {loading ? (
+            <div>loading</div>
+          ) : (
+            <>
+              {data?.characters && <Characters characters={data.characters} />}
+            </>
+          )}
         </Layout>
       </main>
     </>
