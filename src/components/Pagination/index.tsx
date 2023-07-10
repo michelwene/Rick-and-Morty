@@ -12,10 +12,20 @@ export function Pagination({
   handleSwitchPage,
 }: PaginationProps) {
   let pages = [];
-  for (let i = currentPage; i <= currentPage + 5; i++) {
+
+  const numberOfPages =
+    currentPage + 2 > totalPages ? totalPages : currentPage + 2;
+
+  for (let i = currentPage; i <= numberOfPages; i++) {
+    if (i === currentPage && currentPage > 2) {
+      pages.push(currentPage - 2);
+      pages.push(currentPage - 1);
+    }
+    if (i === currentPage && currentPage === 2) {
+      pages.push(currentPage - 1);
+    }
     pages.push(i);
   }
-  console.log("🚀 ~ file: index.tsx:19 ~ renderPages ~ renderPages:", pages);
 
   return (
     <S.Container>

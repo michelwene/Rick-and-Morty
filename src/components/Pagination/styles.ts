@@ -15,6 +15,7 @@ export const Wrapper = styled.ul`
   align-items: center;
   justify-content: center;
   display: flex;
+  flex-flow: row wrap;
 
   column-gap: 8px;
 
