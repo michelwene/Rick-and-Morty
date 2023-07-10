@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useDebounce } from "@/hooks/useDebounce";
 import { RadioGroup } from "@/components/RadioGroup";
 import { Spin } from "@/components/Loading";
+import { Pagination } from "@/components/Pagination";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -36,10 +37,11 @@ const radios = [
 export default function Home() {
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("");
+  const [page, setPage] = useState(1);
   const debouncedValue = useDebounce(search);
   const { data, loading } = useQuery(FETCH_CHARACTERS, {
     variables: {
-      page: 1,
+      page: page,
       filter: {
         name: debouncedValue,
         status: status,
@@ -48,13 +50,19 @@ export default function Home() {
   });
 
   const handleSelectStatus = (value: string) => {
+    setPage(1);
     setStatus(value);
   };
 
   const handleSearch = (value: string) => {
+    setPage(1);
     setSearch(value);
   };
-  console.log("🚀 ~ file: index.tsx:14 ~ Home ~ data:", data);
+
+  const handleSwithPage = (page: number) => {
+    setPage(page);
+  };
+  // console.log("🚀 ~ file: index.tsx:14 ~ Home ~ data:", data);
   return (
     <>
       <Head>
@@ -81,6 +89,11 @@ export default function Home() {
           ) : (
             <>
               {data?.characters && <Characters characters={data.characters} />}
+              <Pagination
+                currentPage={page}
+                totalPages={data?.characters?.info?.pages!}
+                handleSwitchPage={handleSwithPage}
+              />
             </>
           )}
         </Layout>
