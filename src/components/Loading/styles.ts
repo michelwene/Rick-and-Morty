@@ -19,6 +19,6 @@ export const LoadingIcon = styled(AiOutlineLoading)`
     }
   }
   color: ${({ theme }) => theme.colors.colorPrimary};
-  font-size: ${({ theme }) => theme.fonts.fontSize.fontSizeXL};
+  font-size: 30px;
   animation: spin 1s linear infinite;
 `;

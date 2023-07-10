@@ -1,6 +1,7 @@
 import { CharactersQuery } from "@/graphql/generated/graphql";
 import * as S from "./styles";
 import { Card } from "../Card";
+import { EmptyText } from "../Empty/styles";
 interface CharactersProps {
   characters: CharactersQuery["characters"];
 }
@@ -8,7 +9,9 @@ interface CharactersProps {
 export function Characters({ characters }: CharactersProps) {
   return (
     <S.Container>
-      {characters?.results?.length === 0 && <p>Nenhum personagem encontrado</p>}
+      {characters?.results?.length === 0 && (
+        <EmptyText>No characters found</EmptyText>
+      )}
       {characters?.results?.map((character) => (
         <Card.Wrapper key={character?.id}>
           <Card.Cover src={character?.image!} alt={character?.name!} />
