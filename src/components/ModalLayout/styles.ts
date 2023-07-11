@@ -6,7 +6,7 @@ interface ModalProps {
 }
 
 export const Backdrop = styled.div<ModalProps>`
-  z-index: 999;
+  z-index: 1000;
   display: ${({ isShow }) => (isShow ? "flex" : "none")};
   position: fixed;
   top: 0;
