@@ -9,10 +9,20 @@ export const ContentWrapperImage = styled.div`
   width: 100%;
   display: flex;
   gap: 8px;
+  flex-flow: row wrap;
 `;
 
 export const WrapperImage = styled.div`
   max-width: 240px;
+
+  ${({ theme }) => {
+    return `@media (max-width: ${theme.breakpoints.sm}) {
+      max-width: 100%;
+      width: 100%;
+      margin-bottom: ${theme.spacing.margins.margin};
+    
+    }`;
+  }}
 `;
 
 export const Cover = styled.img`

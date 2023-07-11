@@ -8,4 +8,12 @@ export const Container = styled.ul`
 
   row-gap: ${({ theme }) => theme.spacing.margins.marginMD};
   column-gap: 16px;
+
+  ${({ theme }) => {
+    return `@media (max-width: ${theme.breakpoints.sm}) {
+      row-gap: ${theme.spacing.margins.marginSM};
+      column-gap: 8px;
+      justify-content: center;
+    }`;
+  }}
 `;

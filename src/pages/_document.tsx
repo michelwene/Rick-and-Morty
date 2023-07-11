@@ -28,7 +28,7 @@ Document.getInitialProps = async (ctx: DocumentContext) => {
 
 export default function Document() {
   return (
-    <Html lang="pt_BR">
+    <Html lang="pt-BR">
       <Head />
       <body>
         <Main />
