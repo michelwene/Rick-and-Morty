@@ -2,9 +2,18 @@ import * as S from "./styles";
 
 interface CardProps {
   children: React.ReactNode;
-  onClick: () => void;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
 }
 
-export function CardWrapper({ children, onClick }: CardProps) {
-  return <S.Container onClick={onClick}>{children}</S.Container>;
+export function CardWrapper({
+  children,
+  onMouseEnter,
+  onMouseLeave,
+}: CardProps) {
+  return (
+    <S.Container onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+      {children}
+    </S.Container>
+  );
 }

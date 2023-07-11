@@ -85,7 +85,7 @@ export default function Home() {
             label="Search by status:"
           />
           {loading ? (
-            <Spin />
+            <Spin size="large" />
           ) : (
             <>
               {data?.characters && <Characters characters={data.characters} />}

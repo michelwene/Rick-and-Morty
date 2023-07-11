@@ -3,11 +3,12 @@ import { v4 as uuidv4 } from "uuid";
 interface CardBodyProps {
   title: string;
   descriptions: string[];
+  onClick: () => void;
 }
 
-export function CardBody({ title, descriptions }: CardBodyProps) {
+export function CardBody({ title, descriptions, onClick }: CardBodyProps) {
   return (
-    <S.Container>
+    <S.Container onClick={onClick}>
       <S.Content>
         <S.Wrapper>
           <S.Title>{title}</S.Title>

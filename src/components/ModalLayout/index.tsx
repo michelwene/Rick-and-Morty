@@ -3,7 +3,7 @@ import { ModalLayoutProps } from "./types";
 
 export default function ModalLayout({
   isShow,
-  handleClose,
+  handleClose = () => {},
   children,
   title = "",
 }: ModalLayoutProps) {

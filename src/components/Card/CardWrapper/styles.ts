@@ -10,6 +10,8 @@ export const Container = styled.li`
 
   transition: box-shadow 0.2s ease-in-out, border-color 0.2s;
 
+  position: relative;
+
   &:hover {
     cursor: pointer;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);

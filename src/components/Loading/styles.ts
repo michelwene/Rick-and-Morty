@@ -1,6 +1,11 @@
 import { styled } from "styled-components";
 import { AiOutlineLoading } from "react-icons/ai";
 
+interface SpinProps {
+  sizeIcon?: "small" | "medium" | "large";
+  color?: string;
+}
+
 export const LoadingContainer = styled.div`
   display: flex;
   align-items: center;
@@ -9,7 +14,7 @@ export const LoadingContainer = styled.div`
   width: 100%;
 `;
 
-export const LoadingIcon = styled(AiOutlineLoading)`
+export const LoadingIcon = styled(AiOutlineLoading)<SpinProps>`
   @keyframes spin {
     0% {
       transform: rotate(0deg);
@@ -18,7 +23,22 @@ export const LoadingIcon = styled(AiOutlineLoading)`
       transform: rotate(360deg);
     }
   }
-  color: ${({ theme }) => theme.colors.colorPrimary};
-  font-size: 30px;
+  ${({ sizeIcon }) => {
+    if (sizeIcon === "small") {
+      return `
+      font-size: 15px;
+      `;
+    }
+    if (sizeIcon === "medium") {
+      return `font-size: 20px;`;
+    }
+    if (sizeIcon === "large") {
+      return `
+      font-size: 30px;
+      `;
+    }
+  }}
+  color: ${({ theme, color }) => color ?? theme.colors.colorPrimary};
+  /* font-size: ${({ size }) => (size === "medium" ? "20px" : "30px")} */
   animation: spin 1s linear infinite;
 `;
