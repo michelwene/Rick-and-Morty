@@ -1,13 +1,10 @@
 import { styled } from "styled-components";
 
 export const Container = styled.ul`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  min-width: 0;
-
   row-gap: ${({ theme }) => theme.spacing.margins.marginMD};
-  column-gap: 16px;
+  column-gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
   ${({ theme }) => {
     return `@media (max-width: ${theme.breakpoints.sm}) {
