@@ -7,8 +7,16 @@ export default function ModalLayout({
   children,
   title = "",
 }: ModalLayoutProps) {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (event.target === event.currentTarget) {
+      handleClose();
+    }
+  };
   return (
-    <S.Backdrop isShow={isShow}>
+    <S.Backdrop
+      isShow={isShow}
+      onClick={(event: any) => handleClickOutside(event)}
+    >
       <S.Container>
         <S.ModalHeader>
           <S.ModalTitle>{title}</S.ModalTitle>
