@@ -1,25 +1,24 @@
-import { CharactersQuery } from "@/graphql/generated/graphql";
+import {
+  Character as CharacterType,
+  CharactersQuery,
+} from "@/graphql/generated/graphql";
 import * as S from "./styles";
-import { Card } from "../Card";
 import { EmptyText } from "../Empty/styles";
+import { useState } from "react";
+import { Character } from "./Character";
 interface CharactersProps {
   characters: CharactersQuery["characters"];
 }
 
 export function Characters({ characters }: CharactersProps) {
+  const [] = useState(false);
   return (
     <S.Container>
       {characters?.results?.length === 0 && (
         <EmptyText>No characters found</EmptyText>
       )}
       {characters?.results?.map((character) => (
-        <Card.Wrapper key={character?.id}>
-          <Card.Cover src={character?.image!} alt={character?.name!} />
-          <Card.Body
-            title={character?.name!}
-            descriptions={[character?.status!, character?.location?.name!]}
-          />
-        </Card.Wrapper>
+        <Character key={character?.id} character={character as CharacterType} />
       ))}
     </S.Container>
   );

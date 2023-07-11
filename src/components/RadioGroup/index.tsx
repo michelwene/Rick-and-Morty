@@ -25,6 +25,7 @@ export function RadioGroup({
         {radios.map((radio) => (
           <S.Wrapper key={radio.name}>
             <S.Input
+              tabIndex={0}
               type="radio"
               id={radio.label}
               name={radio.name}
