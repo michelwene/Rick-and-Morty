@@ -1,5 +1,6 @@
 import { Character } from "@/graphql/generated/graphql";
 import { createContext, useContext, useState } from "react";
+import { toast } from "react-toastify";
 
 type CharactersContextType = {
   charactersDeleted: string[];
@@ -20,6 +21,7 @@ export function CharactersDeletedProvider({
   const [charactersDeleted, setCharactersDeleted] = useState<string[]>([]);
 
   const onDeleteCharacter = (character: Character) => {
+    toast("Character deleted", { type: "success" });
     setCharactersDeleted((prev) => [...prev, character.id!]);
   };
 
