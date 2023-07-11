@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { RiCloseLine } from "react-icons/ri";
+import { AiOutlineClose } from "react-icons/ai";
 
 interface ModalProps {
   isShow: boolean;
@@ -20,17 +20,18 @@ export const Backdrop = styled.div<ModalProps>`
 `;
 
 export const Container = styled.div`
-  background: ${({ theme }) => theme.colors.background};
+  background: ${({ theme }) => theme.colors.colorBgLayout};
   min-width: 33%;
   height: auto;
   max-height: 50vh;
+  margin: 1rem 0;
 
   transition: transform 0.5s ease-in-out;
 
   transform: "translate(-50%,-50%)";
 
   border-radius: 10px;
-  padding: 0.75rem;
+  padding: 20px 24px;
 
   overflow-y: auto;
 
@@ -47,11 +48,16 @@ export const ModalHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  margin-bottom: 8px;
 `;
 
 export const ModalTitle = styled.h3`
-  font-size: ${({ theme }) => theme.fonts.fontSize.fontSizeHeading};
+  font-size: ${({ theme }) => theme.fonts.fontSize.fontSizeLG};
+  color: ${({ theme }) => theme.colors.colorText};
   font-weight: 600;
+  line-height: 1.5;
+  word-wrap: break-word;
 `;
 
 export const CloseButton = styled.button`
@@ -59,7 +65,9 @@ export const CloseButton = styled.button`
   border: none;
   cursor: pointer;
   outline: none;
-  padding: 0.5rem;
+
+  width: 22px;
+  height: 22px;
 
   transition: filter 0.2s;
 
@@ -70,7 +78,7 @@ export const CloseButton = styled.button`
   &:hover {
     filter: brightness(0.8);
     background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
+    border-radius: 4px;
   }
 
   &:active {
@@ -78,6 +86,7 @@ export const CloseButton = styled.button`
   }
 `;
 
-export const CloseIcon = styled(RiCloseLine)`
-  font-size: ${({ theme }) => theme.fonts.fontSize.fontSizeLG};
+export const CloseIcon = styled(AiOutlineClose)`
+  font-size: 16px;
+  line-height: 22px;
 `;
