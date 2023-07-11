@@ -62,6 +62,7 @@ export default function Home() {
   const handleSwithPage = (page: number) => {
     setPage(page);
   };
+
   console.log("🚀 ~ file: index.tsx:14 ~ Home ~ data:", data);
   return (
     <>

@@ -4,6 +4,7 @@ import { ModalDetailCharacter } from "../ModalDetailCharacter";
 import { useState, useCallback } from "react";
 import { ButtonDeleteItem } from "../ButtonDeleteItem";
 import ModalConfirmationDelection from "../ModalConfirmationDeletion";
+import { useCharactersDeleted } from "@/context/CharactersDeletedContext";
 
 interface CharacterProps {
   character: CharacterType;
@@ -15,6 +16,7 @@ export function Character({ character }: CharacterProps) {
   const [isOpenModalDeletion, setIsOpenModalDeletion] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isShowButtonDelete, setIsShowButtonDelete] = useState(false);
+  const { onDeleteCharacter } = useCharactersDeleted();
 
   const handleOpenModal = () => {
     setIsOpenModalDetailCharacter(true);
@@ -32,25 +34,13 @@ export function Character({ character }: CharacterProps) {
     setIsOpenModalDeletion(false);
   };
 
-  const onDeleteCharacter = () => {
+  const handleDeleteCharacter = () => {
     setIsLoading(true);
-    // setTimeout(() => {
-    //   const charactersDeleted = JSON.parse(
-    //     localStorage.getItem("charactersDeleted") ?? "[]"
-    //   );
-
-    //   if (charactersDeleted.includes(character.id)) {
-    //     return;
-    //   }
-
-    //   const newCharactersDeleted = [...charactersDeleted, character.id!];
-    //   localStorage.setItem(
-    //     "charactersDeleted",
-    //     JSON.stringify(newCharactersDeleted)
-    //   );
-    // setIsLoading(false);
-    // }, 3000);
-    // handleCloseModalDeletion();
+    setTimeout(() => {
+      onDeleteCharacter(character);
+      setIsLoading(false);
+      handleCloseModalDeletion();
+    }, 3000);
   };
 
   return (
@@ -88,7 +78,7 @@ export function Character({ character }: CharacterProps) {
           title="Do you want to delete this character?"
           text="This action cannot be undone."
           isLoading={isLoading}
-          onConfirm={onDeleteCharacter}
+          onConfirm={handleDeleteCharacter}
         />
       )}
     </>
