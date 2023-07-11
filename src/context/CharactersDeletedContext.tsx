@@ -20,8 +20,7 @@ export function CharactersDeletedProvider({
   const [charactersDeleted, setCharactersDeleted] = useState<string[]>([]);
 
   const onDeleteCharacter = (character: Character) => {
-    const newCharactersDeleted = [...charactersDeleted, character.id!];
-    setCharactersDeleted(newCharactersDeleted);
+    setCharactersDeleted((prev) => [...prev, character.id!]);
   };
 
   const values = {
