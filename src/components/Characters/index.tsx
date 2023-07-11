@@ -13,18 +13,20 @@ interface CharactersProps {
 export function Characters({ characters }: CharactersProps) {
   const { charactersDeleted } = useCharactersDeleted();
   return (
-    <S.Container>
+    <>
       {characters?.results?.length === 0 && (
         <Empty message="No characters found" />
       )}
-      {characters?.results
-        ?.filter((character) => !charactersDeleted.includes(character?.id!))
-        .map((character) => (
-          <Character
-            key={character?.id}
-            character={character as CharacterType}
-          />
-        ))}
-    </S.Container>
+      <S.Container>
+        {characters?.results
+          ?.filter((character) => !charactersDeleted.includes(character?.id!))
+          .map((character) => (
+            <Character
+              key={character?.id}
+              character={character as CharacterType}
+            />
+          ))}
+      </S.Container>
+    </>
   );
 }
