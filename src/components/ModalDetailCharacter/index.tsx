@@ -1,5 +1,5 @@
 import { Character } from "@/graphql/generated/graphql";
-import ModalLayout from "../ModalLayout";
+import ModalLayout from "../ModalLayout/ModalLayout";
 import { ModalLayoutProps } from "../ModalLayout/types";
 import * as S from "./styles";
 import { format } from "date-fns";

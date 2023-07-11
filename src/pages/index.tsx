@@ -63,7 +63,6 @@ export default function Home() {
     setPage(page);
   };
 
-  console.log("🚀 ~ file: index.tsx:14 ~ Home ~ data:", data);
   return (
     <>
       <Head>

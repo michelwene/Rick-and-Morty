@@ -1,6 +1,7 @@
 import * as S from "./styles";
 import { Spin } from "../Loading";
-import ModalLayout from "../ModalLayout";
+import ModalLayout from "../ModalLayout/ModalLayout";
+import { Modal } from "../ModalLayout/index";
 
 export interface ModalConfirmationDelectionProps {
   text: string;
@@ -19,12 +20,19 @@ export default function ModalConfirmationDelection({
   title,
   isLoading,
 }: ModalConfirmationDelectionProps) {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (event.target === event.currentTarget) {
+      onCancel();
+    }
+  };
   return (
-    <ModalLayout
-      title={title}
-      isShow={isOpen}
-      handleClose={isLoading ? undefined : onCancel}
-    >
+    <Modal.Backdrop isShow={isOpen} onClick={handleClickOutside}>
+      <Modal.Header>
+        <S.WrapperTitle>
+          <S.ExclamationIcon />
+          <Modal.Title>{title}</Modal.Title>
+        </S.WrapperTitle>
+      </Modal.Header>
       <S.Text>{text}</S.Text>
       <S.WrapperButtons>
         <S.ButtonCancel
@@ -44,6 +52,6 @@ export default function ModalConfirmationDelection({
           OK
         </S.ButtonConfirm>
       </S.WrapperButtons>
-    </ModalLayout>
+    </Modal.Backdrop>
   );
 }

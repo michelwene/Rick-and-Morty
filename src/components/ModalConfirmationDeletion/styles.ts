@@ -1,8 +1,22 @@
 import styled from "styled-components";
+import { AiOutlineExclamation } from "react-icons/ai";
 
 interface IModalProps {
   isLoading?: boolean;
 }
+
+export const WrapperTitle = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+`;
+
+export const ExclamationIcon = styled(AiOutlineExclamation)`
+  font-size: 22px;
+  color: #fff;
+  background-color: #faad14;
+  border-radius: 50%;
+`;
 
 export const Text = styled.p`
   font-size: ${({ theme }) => theme.fonts.fontSize.fontSizeRegular};

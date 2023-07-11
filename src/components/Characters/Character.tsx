@@ -5,12 +5,15 @@ import { useState, useCallback } from "react";
 import { ButtonDeleteItem } from "../ButtonDeleteItem";
 import ModalConfirmationDelection from "../ModalConfirmationDeletion";
 import { useCharactersDeleted } from "@/context/CharactersDeletedContext";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 interface CharacterProps {
   character: CharacterType;
 }
 
 export function Character({ character }: CharacterProps) {
+  const isMobile = useMediaQuery("(max-width: 620px)");
+
   const [isOpenModalDetailCharacter, setIsOpenModalDetailCharacter] =
     useState(false);
   const [isOpenModalDeletion, setIsOpenModalDeletion] = useState(false);
@@ -60,9 +63,10 @@ export function Character({ character }: CharacterProps) {
           title={character?.name!}
           descriptions={[character?.status!, character?.location?.name!]}
         />
-        {isShowButtonDelete && (
+        {isShowButtonDelete && !isMobile && (
           <ButtonDeleteItem onClick={handleOpenModalDeletion} />
         )}
+        {isMobile && <ButtonDeleteItem onClick={handleOpenModalDeletion} />}
       </Card.Wrapper>
       {isOpenModalDetailCharacter && (
         <ModalDetailCharacter
