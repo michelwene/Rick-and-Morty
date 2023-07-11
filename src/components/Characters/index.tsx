@@ -11,7 +11,6 @@ interface CharactersProps {
 }
 
 export function Characters({ characters }: CharactersProps) {
-  const [] = useState(false);
   return (
     <S.Container>
       {characters?.results?.length === 0 && (

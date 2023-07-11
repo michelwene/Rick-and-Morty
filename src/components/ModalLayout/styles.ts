@@ -20,24 +20,19 @@ export const Backdrop = styled.div<ModalProps>`
 `;
 
 export const Container = styled.div`
-  background: ${({ theme }) => theme.colors.colorBgLayout};
+  background: #fff;
   min-width: 33%;
   height: auto;
   max-height: 50vh;
   margin: 1rem 0;
 
-  transition: transform 0.5s ease-in-out;
-
-  transform: "translate(-50%,-50%)";
+  display: flex;
+  flex-direction: column;
 
   border-radius: 10px;
   padding: 20px 24px;
 
-  overflow-y: auto;
-
-  ::-webkit-scrollbar {
-    width: 0.5rem;
-  }
+  overflow-y: hidden;
 
   @media (max-width: 768px) {
     min-width: 80%;

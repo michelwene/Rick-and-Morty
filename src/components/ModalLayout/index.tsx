@@ -5,7 +5,7 @@ export default function ModalLayout({
   isShow,
   handleClose,
   children,
-  title,
+  title = "",
 }: ModalLayoutProps) {
   return (
     <S.Backdrop isShow={isShow}>

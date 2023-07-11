@@ -89,11 +89,13 @@ export default function Home() {
           ) : (
             <>
               {data?.characters && <Characters characters={data.characters} />}
-              <Pagination
-                currentPage={page}
-                totalPages={data?.characters?.info?.pages!}
-                handleSwitchPage={handleSwithPage}
-              />
+              {data?.characters?.info?.count! > 20 && (
+                <Pagination
+                  currentPage={page}
+                  totalPages={data?.characters?.info?.pages!}
+                  handleSwitchPage={handleSwithPage}
+                />
+              )}
             </>
           )}
         </Layout>
