@@ -17,8 +17,9 @@ export const GlobalStyle = createGlobalStyle`
     }
     main{
         width: 100%;
-  min-height: 100vh;
-
-  background-color: ${({ theme }) => theme.colors.colorPrimaryBg};
+        height: 100vh;
+        min-height: 100vh;
+        background-color: ${({ theme }) => theme.colors.colorPrimaryBg};
+        overflow-y: auto;
     }
 `;
