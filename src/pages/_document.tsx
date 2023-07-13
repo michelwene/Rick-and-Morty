@@ -28,8 +28,13 @@ Document.getInitialProps = async (ctx: DocumentContext) => {
 
 export default function Document() {
   return (
-    <Html lang="pt-BR">
-      <Head />
+    <Html lang="en-US">
+      <Head>
+        <title>Rick and Morty</title>
+        <meta name="description" content="List of Rick and Morty characters" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <body>
         <Main />
         <NextScript />
